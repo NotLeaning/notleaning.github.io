@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SKYWONDER</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-black text-white font-sans">
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+    <img src="assets/cloud.png" alt="SKYWONDER logo" class="w-32 h-32 animate-drop fade-in">
+    <h1 class="font-display text-8xl tracking-widest mt-6 animate-fade-in">SKYWONDER</h1>
+
+    <!-- Scroll hint -->
+    <div class="absolute bottom-10 flex flex-col items-center gap-2">
+      <span class="text-white/25 text-xs tracking-widest uppercase">Scroll</span>
+      <div class="w-px h-8 bg-gradient-to-b from-white/30 to-transparent animate-bounce"></div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="w-full h-px bg-white/10"></div>
+
+  <!-- Policy Section -->
+  <section class="w-full flex flex-col items-center py-24 px-4">
+    <button id="policy-btn" class="border border-white/30 px-12 py-4 font-display text-3xl tracking-widest text-white/70 hover:text-white hover:border-white/70 transition-all duration-300">
+      POLICY
+    </button>
+
+    <div id="policy-content" class="hidden w-full max-w-3xl mt-8">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="font-display text-5xl tracking-widest text-white">UNTAMED</h2>
+        <button id="policy-close" class="text-white/40 hover:text-white text-xs tracking-widest uppercase border border-white/20 hover:border-white/50 px-4 py-2 transition-all duration-200">Close</button>
+      </div>
+      <div class="border border-white/10 bg-white/5 p-6 max-h-[60vh] overflow-y-auto text-white/70 text-sm leading-relaxed">
+        <pre>
+UNTAMED — Privacy & Terms Policy
+Last Updated: 2026
+
+1. INTRODUCTION
+UNTAMED — Privacy & Terms Policy
+Last Updated: 2026
+
+1. INTRODUCTION
+This policy applies to UNTAMED, developed and published by SKYWONDER, available on Meta Quest. By playing UNTAMED, you agree to the terms outlined in this document.
+
+2. PLATFORM SERVICES — EPIC ONLINE SERVICES (EOS)
+UNTAMED uses Epic Online Services (EOS) to power online multiplayer features including matchmaking, sessions, presence, and player authentication. By using online features, you agree to Epic Games' Terms of Service and Privacy Policy, available at www.epicgames.com. Epic Online Services may collect and process data such as your account identifiers, gameplay session data, and network information to facilitate online play.
+
+3. META QUEST PLATFORM
+UNTAMED is distributed through the Meta Quest platform. Your use of Meta Quest hardware and software is subject to Meta's Terms of Service and Privacy Policy. Meta may collect device data, usage analytics, and account information in accordance with their policies.
+
+4. DATA WE COLLECT
+- Player identifiers provided by Epic Online Services or Meta
+- Gameplay session data (match results, session duration)
+- Device and platform information for compatibility purposes
+- Crash reports and performance diagnostics to improve the game
+
+5. HOW WE USE YOUR DATA
+We use collected data solely to:
+- Provide and improve online multiplayer features
+- Diagnose crashes and fix bugs
+- Analyze gameplay for balancing and improvements
+We do not sell your personal data to third parties.
+
+6. DATA RETENTION
+Session and gameplay data is retained for up to 12 months. You may request deletion of your data by contacting us at the address below.
+
+7. CHILDREN'S PRIVACY
+UNTAMED is not directed toward children under the age of 13. We do not knowingly collect personal data from children under 13. If you believe a child has provided us data, please contact us immediately.
+
+8. CHANGES TO THIS POLICY
+We may update this policy from time to time. Continued use of UNTAMED after changes constitutes acceptance of the revised policy. Check this page for the latest version.
+
+9. CONTACT
+For questions or data requests, contact SKYWONDER at:
+leaningmonkevr@gmail.com
+       </pre>
+      </div>
+      <p class="text-white/25 text-xs mt-4 text-center tracking-widest">
+        © 2025 SKYWONDER. All rights reserved.
+      </p>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script>
+    const policyBtn = document.getElementById("policy-btn");
+    const policyContent = document.getElementById("policy-content");
+    const policyClose = document.getElementById("policy-close");
+
+    policyBtn.addEventListener("click", () => {
+      policyBtn.classList.add("hidden");
+      policyContent.classList.remove("hidden");
+    });
+
+    policyClose.addEventListener("click", () => {
+      policyContent.classList.add("hidden");
+      policyBtn.classList.remove("hidden");
+    });
+  </script>
+
+</body>
+</html>

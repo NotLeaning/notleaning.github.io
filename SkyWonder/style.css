@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body { font-family: 'Bebas Neue', sans-serif; }
+
+/* Animations */
+@keyframes drop { 0% { transform: translateY(-200px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+@keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+.animate-drop { animation: drop 1.2s ease forwards; }
+.animate-fade-in { animation: fade-in 0.8s ease forwards; }
+.animate-bounce { animation: bounce 1.5s ease-in-out infinite; }
+
+/* Custom colors if needed */
+:root {
+  --background: #000000;
+  --foreground: #fafafa;
+  --primary: #3b82f6; /* Tailwind blue-500 */
+}
