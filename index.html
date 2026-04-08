@@ -5,47 +5,115 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SKYWONDER</title>
 
-  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Bebas Neue', sans-serif;
+      background: black;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* LOGO DROP (matches framer easing) */
+    @keyframes drop {
+      0% { transform: translateY(-200px); opacity: 0; }
+      60% { transform: translateY(25px); opacity: 1; }
+      100% { transform: translateY(0); }
+    }
+
+    /* TITLE FADE */
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SCROLL BOUNCE */
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
+    .logo {
+      animation: drop 1.2s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+
+    .title {
+      animation: fadeUp 0.8s ease-out forwards;
+      animation-delay: 0.9s;
+      opacity: 0;
+      letter-spacing: 0.15em;
+      text-shadow: 0 0 25px rgba(255,255,255,0.08);
+    }
+
+    .scroll {
+      animation: fadeUp 1s ease forwards;
+      animation-delay: 2s;
+      opacity: 0;
+    }
+
+    .scroll-line {
+      animation: bounce 1.5s infinite ease-in-out;
+    }
+
+    .transition-all-smooth {
+      transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
+    }
+  </style>
 </head>
-<body class="bg-black text-white font-sans">
 
-  <!-- Hero Section -->
-  <section class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
-    <img src="assets/cloud.png" alt="SKYWONDER logo" class="w-32 h-32 animate-drop fade-in">
-    <h1 class="font-display text-8xl tracking-widest mt-6 animate-fade-in">SKYWONDER</h1>
+<body>
 
-    <!-- Scroll hint -->
-    <div class="absolute bottom-10 flex flex-col items-center gap-2">
-      <span class="text-white/25 text-xs tracking-widest uppercase">Scroll</span>
-      <div class="w-px h-8 bg-gradient-to-b from-white/30 to-transparent animate-bounce"></div>
+<!-- HERO -->
+<section class="min-h-screen flex flex-col items-center justify-center text-center relative">
+
+  <!-- LOGO -->
+  <img 
+    src="https://media.base44.com/images/public/69d5df9ee74ef7220f7c41bc/8f9704106_cloud.png"
+    class="w-24 md:w-32 logo"
+  >
+
+  <!-- TITLE -->
+  <h1 class="text-7xl md:text-9xl mt-6 title">
+    SKYWONDER
+  </h1>
+
+  <!-- SCROLL -->
+  <div class="absolute bottom-10 flex flex-col items-center scroll">
+    <span class="text-white/25 text-xs tracking-[0.3em] uppercase">Scroll</span>
+    <div class="w-px h-8 bg-gradient-to-b from-white/30 to-transparent scroll-line"></div>
+  </div>
+
+</section>
+
+<div class="w-full h-px bg-white/10"></div>
+
+<!-- POLICY SECTION -->
+<section class="min-h-screen flex flex-col items-center justify-center text-center px-4">
+
+  <!-- STEP BUTTON -->
+  <button id="mainBtn"
+    class="border border-white/30 px-12 py-4 text-3xl tracking-[0.3em] text-white/70 hover:text-white hover:border-white transition-all-smooth">
+    POLICY
+  </button>
+
+  <!-- POLICY CONTENT -->
+  <div id="policyContent" class="hidden w-full max-w-3xl mt-16 text-left">
+
+    <div class="flex justify-between items-center mb-8">
+      <h2 class="text-5xl tracking-[0.2em]">UNTAMED</h2>
+
+      <button id="closeBtn"
+        class="text-xs tracking-widest border border-white/20 px-4 py-2 text-white/40 hover:text-white hover:border-white transition-all-smooth">
+        CLOSE
+      </button>
     </div>
-  </section>
 
-  <!-- Divider -->
-  <div class="w-full h-px bg-white/10"></div>
-
-  <!-- Policy Section -->
-  <section class="w-full flex flex-col items-center py-24 px-4">
-    <button id="policy-btn" class="border border-white/30 px-12 py-4 font-display text-3xl tracking-widest text-white/70 hover:text-white hover:border-white/70 transition-all duration-300">
-      POLICY
-    </button>
-
-    <div id="policy-content" class="hidden w-full max-w-3xl mt-8">
-      <div class="flex items-center justify-between mb-8">
-        <h2 class="font-display text-5xl tracking-widest text-white">UNTAMED</h2>
-        <button id="policy-close" class="text-white/40 hover:text-white text-xs tracking-widest uppercase border border-white/20 hover:border-white/50 px-4 py-2 transition-all duration-200">Close</button>
-      </div>
-      <div class="border border-white/10 bg-white/5 p-6 max-h-[60vh] overflow-y-auto text-white/70 text-sm leading-relaxed">
-        <pre>
+    <div class="border border-white/10 bg-white/5 p-6 max-h-[60vh] overflow-y-auto text-white/70 text-sm leading-relaxed">
+<pre>
 UNTAMED — Privacy & Terms Policy
-Last Updated: 2026
+Last Updated: 4/8/2026
 
 1. INTRODUCTION
 This policy applies to UNTAMED, developed and published by SKYWONDER, available on Meta Quest. By playing UNTAMED, you agree to the terms outlined in this document.
@@ -81,30 +149,51 @@ We may update this policy from time to time. Continued use of UNTAMED after chan
 9. CONTACT
 For questions or data requests, contact SKYWONDER at:
 leaningmonkevr@gmail.com
-       </pre>
-      </div>
-      <p class="text-white/25 text-xs mt-4 text-center tracking-widest">
-        © 2026 SKYWONDER. All rights reserved.
-      </p>
+</pre>
     </div>
-  </section>
 
-  <!-- Scripts -->
-  <script>
-    const policyBtn = document.getElementById("policy-btn");
-    const policyContent = document.getElementById("policy-content");
-    const policyClose = document.getElementById("policy-close");
+    <p class="text-white/25 text-xs mt-4 text-center tracking-widest">
+      © 2026 SKYWONDER. All rights reserved.
+    </p>
+  </div>
 
-    policyBtn.addEventListener("click", () => {
-      policyBtn.classList.add("hidden");
-      policyContent.classList.remove("hidden");
-    });
+</section>
 
-    policyClose.addEventListener("click", () => {
-      policyContent.classList.add("hidden");
-      policyBtn.classList.remove("hidden");
-    });
-  </script>
+<script>
+let step = 0;
+
+const btn = document.getElementById("mainBtn");
+const content = document.getElementById("policyContent");
+const closeBtn = document.getElementById("closeBtn");
+
+btn.onclick = () => {
+  if (step === 0) {
+    btn.innerText = "UNTAMED";
+    btn.style.fontSize = "5rem";
+    btn.style.border = "none";
+    btn.style.color = "white";
+    step = 1;
+  }
+  else if (step === 1) {
+    btn.style.opacity = "0";
+    setTimeout(() => {
+      btn.style.display = "none";
+      content.classList.remove("hidden");
+    }, 300);
+    step = 2;
+  }
+};
+
+closeBtn.onclick = () => {
+  content.classList.add("hidden");
+  btn.style.display = "block";
+  btn.style.opacity = "1";
+  btn.innerText = "POLICY";
+  btn.style.fontSize = "";
+  btn.style.border = "";
+  step = 0;
+};
+</script>
 
 </body>
 </html>
